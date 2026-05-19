@@ -1,0 +1,41 @@
+{
+  "id": "win95_big",
+  "type": "pcx86",
+  "factory": "CompDeskpro386",
+  "cpu": {
+    "model": "80386",
+    "speed": 16000000,
+    "fpu": "80387"
+  },
+  "ram": {
+    "size": 16777216
+  },
+  "rom": {
+    "addr": 983040,
+    "size": 65536,
+    "file": "https://pcjs.org"
+  },
+  "video": {
+    "type": "vga",
+    "model": "et4000",
+    "vram": 1048576
+  },
+  "keyboard": {
+    "model": "101"
+  },
+  "mouse": {
+    "type": "serial"
+  },
+  "fdc": {
+    "type": "standard"
+  },
+  "hdc": {
+    "type": "ide",
+    "drive": 0,
+    "file": "https://pcjs.org",
+    "cylinders": 900,
+    "heads": 15,
+    "sectors": 17,
+    "size": 117495000
+  }
+}

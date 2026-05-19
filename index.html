@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iPad 專用 - Windows 95 大畫面模擬器</title>
+    
+    <!-- 引入 PCjs 官方最新資源 -->
+    <link rel="stylesheet" href="https://pcjs.org">
+    <script src="https://pcjs.org" type="module"></script>
+
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #222; font-family: sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        
+        /* 容器居中 */
+        .pcjs-wrapper {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 🎯 核心：針對 PCjs 的 canvas 畫面進行放大處理 */
+        .pcjs-machine canvas, .pcjs-video-canvas {
+            width: 960px !important;   /* 將原本 640px 寬度強制放大至 960px 或更高 */
+            height: 720px !important;  /* 將原本 480px 高度強制放大至 720px */
+            
+            /* 讓復古點陣圖在 iPad 放大時保持清晰不模糊 */
+            image-rendering: pixelated; 
+            image-rendering: crisp-edges;
+            
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 4px solid #444;
+        }
+
+        /* 隱藏不必要的網頁雜訊，只留下純粹的模擬器 */
+        .pcjs-panel {
+            background: #333 !important;
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+
+    <h3 style="color:#fff; text-align:center; margin:10px 0;">386 Pro - 大畫面模式</h3>
+
+    <div class="pcjs-wrapper">
+        <!-- 指向我們下方定義的完整 386 硬體 JSON 設定檔 -->
+        <pcjs-machine id="win95_big" config="./machine_386.json" autoStart="true">
+            <p style="color: white;">正在初始化 386 硬體，請稍候...</p>
+        </pcjs-machine>
+    </div>
+
+</body>
+</html>
